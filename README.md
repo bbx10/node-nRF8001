@@ -5,10 +5,10 @@ node.js support for the
 This module also works with the
 [Adafruit BLE Friend nRF51822 board](http://www.adafruit.com/products/2267).
 
-This is a pre-release version because it depends on a forked module. The forked
-module must be installed using "git clone" instead of "npm install". When the
-pending pull request is merged, this will be cleaned up. If this does not make
-any sense to you, wait until the first release.
+This is a pre-release version because it depends on a pre-release module. The
+pre-release module must be installed using "git clone" instead of "npm
+install". When the module is released, this module will be released. If this
+does not make any sense, wait until the first release.
 
 ## Tested configurations
 
@@ -101,11 +101,12 @@ to run the Arudino BLE UART driver and the callbackEcho.ino test program.
 ```sh
 git clone https://github.com/bbx10/node-nRF8001.git
 ```
-Next install the noble-device fork instead of the version in npm. This
-fork has a fix required for this module.
+
+Next install the latest noble-device module from github. This version has a fix
+required for this module.
 
 ```sh
-git clone https://github.com/bbx10/noble-device.git
+git clone https://github.com/sandeepmistry/noble-device.git
 cd noble-device
 npm install
 cd ..
@@ -133,7 +134,7 @@ received: Hello world! 1
 
 ## Example 2: node.js and BLE firmata
 
-Firmata allows node.js programs to control the pins on an Ardunio Uno.
+Firmata allows node.js programs to control the pins on an Arduino Uno.
 Adafruit provides BLEFirmata but a few fixes are required so use
 the fork described below
 
@@ -160,6 +161,16 @@ npm install firmata
 sudo node blefirmata.js
 ```
 
-## TODO
+## Example 3: johnny-five and BLE UART
 
-johnny-five io module
+### Setup the Uno with BLEFirmata
+
+See the previous example to install BLEFirmata.
+
+### Run the node.js johnny-five test program
+
+```sh
+cd node-nRF8001/examples/blejohnnyfive
+npm install firmata johnny-five
+sudo node blej5.js
+```
