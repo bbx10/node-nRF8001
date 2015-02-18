@@ -1,0 +1,23 @@
+## BLEFirmata fork
+
+```sh
+git clone git@github.com:bbx10/Adafruit_BLEFirmata.git
+cd Adafruit_BLEFirmata
+git checkout nodejs
+```
+
+This fork fixes 3 firmata responses required by node.js firmata and
+johnny-five. Burn this into the Arduino Uno and hook up the Adafruit
+nRF8001 breakout board as specifed in the Adafruit tutorial.
+
+## Pre-release nRF8001 driver
+
+```sh
+git clone git@github.com:bbx10/node-nRF8001.git
+```
+
+## noble-device fork
+
+```sh
+git clone git@github.com:bbx10/noble-device.git
+```
