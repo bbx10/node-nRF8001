@@ -1,6 +1,6 @@
 {
   "name": "nrfuart",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Use the Adafruit nRF8001 board in UART mode",
   "main": "index.js",
   "scripts": {
