@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/bbx10/node-nRF8001/issues"
   },
-  "homepage": "https://github.com/bbx10/node-nRF8001"
+  "homepage": "https://github.com/bbx10/node-nRF8001",
+  "dependencies": {
+    "noble-device": "^0.1.3"
+  }
 }

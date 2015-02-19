@@ -27,7 +27,7 @@
  * nRF8001 boards but has only been tested with the Adafruit board.
  */
 
-var NobleDevice = require('../noble-device/index');
+var NobleDevice = require('noble-device');
 var events = require('events');
 var util = require('util');
 
@@ -69,18 +69,11 @@ nrfuart.prototype.onData = function(data) {
 // nrfuart.write([0x02, 0x12, 0x34, 0x03], function(){...});
 nrfuart.prototype.write = function(data, done) {
     'use strict';
-    var callback;
-    if (typeof done === 'function') {
-        callback = done;
-    }
-    else {
-        callback = function(){};
-    }
     if (typeof data === 'string') {
-        this.writeDataCharacteristic(NRFUART_SERVICE_UUID, NRFUART_WRITE_CHAR, new Buffer(data), callback);
+        this.writeDataCharacteristic(NRFUART_SERVICE_UUID, NRFUART_WRITE_CHAR, new Buffer(data), done);
     }
     else {
-        this.writeDataCharacteristic(NRFUART_SERVICE_UUID, NRFUART_WRITE_CHAR, data, callback);
+        this.writeDataCharacteristic(NRFUART_SERVICE_UUID, NRFUART_WRITE_CHAR, data, done);
     }
 };
 

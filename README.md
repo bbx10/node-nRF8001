@@ -5,10 +5,7 @@ node.js support for the
 This module also works with the
 [Adafruit BLE Friend nRF51822 board](http://www.adafruit.com/products/2267).
 
-This is a pre-release version because it depends on a pre-release module. The
-pre-release module must be installed using "git clone" instead of "npm
-install". When the module is released, this module will be released. If this
-does not make any sense, wait until the first release.
+Other nRF800x and nRF51822 board may also work.
 
 ## Tested configurations
 
@@ -34,9 +31,6 @@ sudo apt-get install bluetooth bluez-utils libbluetooth-dev
 TODO
 
 ## Install this module
-
-Pre-release note: This module is not yet available using npm.
-Keep reading to see how to install the module from github.
 
 ```sh
 npm install nrfuart
@@ -96,21 +90,12 @@ Follow the
 to run the Arudino BLE UART driver and the callbackEcho.ino test program.
 
 
-### Setup the pre-release node.js nRF8001 driver with noble-device fork
+### Install the nrfuart package
 
 ```sh
-git clone https://github.com/bbx10/node-nRF8001.git
+npm install nrfuart
 ```
 
-Next install the latest noble-device module from github. This version has a fix
-required for this module.
-
-```sh
-git clone https://github.com/sandeepmistry/noble-device.git
-cd noble-device
-npm install
-cd ..
-```
 Make sure the Arduino is running callbackEcho.ino and verify it is
 working using the Adafruit Bluefruit LE iOS application. When done,
 disconnect.
@@ -118,7 +103,7 @@ disconnect.
 Next run the node.js BLE echo test example program.
 
 ```sh
-cd node-nRF8001/examples/simpleuart
+cd node_modules/node-nRF8001/examples/simpleuart
 sudo node bleEchoTst.js
 ```
 The output should look like this.
@@ -156,7 +141,7 @@ nRF8001 breakout board as specifed in the
 ### Run the node.js firmata test program
 
 ```sh
-cd node-nRF8001/examples/blefirmata
+cd node_modules/node-nRF8001/examples/blefirmata
 npm install firmata
 sudo node blefirmata.js
 ```
@@ -170,7 +155,7 @@ See the previous example to install BLEFirmata.
 ### Run the node.js johnny-five test program
 
 ```sh
-cd node-nRF8001/examples/blejohnnyfive
+cd node_modules/node-nRF8001/examples/blejohnnyfive
 npm install firmata johnny-five
 sudo node blej5.js
 ```
