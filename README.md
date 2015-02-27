@@ -7,6 +7,9 @@ This module also works with the
 
 Other nRF800x and nRF51822 board may also work.
 
+This module is built on [noble](https://www.npmjs.com/package/noble) so it
+should work where ever noble works.
+
 ## Tested configurations
 
 A USB to Bluetooth 4.0 gadget similar to
@@ -28,7 +31,36 @@ sudo apt-get install bluetooth bluez-utils libbluetooth-dev
 
 ### Raspberry Pi running Raspbian Linux
 
-TODO
+The tested device is a Raspberry Pi Model B running a fresh installation of
+Raspian release 2015-02-16. Be sure to do the usual post-installation steps
+such as "sudo apt-get update", "sudo apt-get upgrade", and "sudo raspi-config".
+
+The next step is to install node.js. The version of node.js in the Raspian repo
+is too old so install a recent version.
+
+```sh
+wget http://node-arm.herokuapp.com/node_0.10.36_armhf.deb
+sudo dpkg -i node_0.10.36_armhf.deb
+```
+
+The version of bluez in the Raspian rep is also old so install a recent
+version.
+
+```sh
+# Reference: http://www.elinux.org/RPi_Bluetooth_LE
+sudo apt-get install libdbus-1-dev libdbus-glib-1-dev libglib2.0-dev \
+libical-dev libreadline-dev libudev-dev libusb-dev make
+mkdir bluez
+cd bluez
+wget https://www.kernel.org/pub/linux/bluetooth/bluez-5.28.tar.xz
+tar xf bluez-5.28.tar.xz
+cd bluez-5.28
+./configure --disable-systemd --enable-library
+# The next step takes a long time.
+make
+sudo make install
+sudo hciconfig hci0 up
+```
 
 ## Install this module
 
