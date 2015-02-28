@@ -10,6 +10,9 @@ Other nRF800x and nRF51822 board may also work.
 This module is built on [noble](https://www.npmjs.com/package/noble) so it
 should work where ever noble works.
 
+See also [cc2uart](https://github.com/bbx10/node-cc2540) if using the CC2540
+chip.
+
 ## Tested configurations
 
 A USB to Bluetooth 4.0 gadget similar to
@@ -43,10 +46,19 @@ wget http://node-arm.herokuapp.com/node_0.10.36_armhf.deb
 sudo dpkg -i node_0.10.36_armhf.deb
 ```
 
-The version of bluez in the Raspian rep is also old so install a recent
-version.
+Install bluez 4.99 from the Raspian repo. Testing has shown this version works
+with BLE and noble. This is much easier and faster than install bluez 5.x from
+source code.
 
 ```sh
+sudo apt-get install bluez bluez-tools libbluetooth-dev
+```
+
+If bluez 4.99 does not work, remove it then install bluez 5.x as described
+below. Remember, do the next block of commands only if BLE is not working.
+
+```sh
+sudo apt-get remove bluez bluez-tools libbluetooth-dev
 # Reference: http://www.elinux.org/RPi_Bluetooth_LE
 sudo apt-get install libdbus-1-dev libdbus-glib-1-dev libglib2.0-dev \
 libical-dev libreadline-dev libudev-dev libusb-dev make

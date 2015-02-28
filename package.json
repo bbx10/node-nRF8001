@@ -16,7 +16,8 @@
     "bluetooth",
     "low",
     "energy",
-    "btle"
+    "btle",
+    "ble"
   ],
   "author": "bbx10node <bbx10node@gmail.com> (http://x10linux.blogspot.com/)",
   "license": "MIT",
