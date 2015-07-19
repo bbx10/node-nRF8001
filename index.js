@@ -31,9 +31,9 @@ var NobleDevice = require('noble-device');
 var events = require('events');
 var util = require('util');
 
-var NRFUART_SERVICE_UUID = '6e400001b5a3f393e0a9e50e24dcca9e';
-var NRFUART_NOTIFY_CHAR  = '6e400003b5a3f393e0a9e50e24dcca9e';
-var NRFUART_WRITE_CHAR   = '6e400002b5a3f393e0a9e50e24dcca9e';
+var NRFUART_SERVICE_UUID = process.env.NRFUART_SERVICE_UUID || '6e400001b5a3f393e0a9e50e24dcca9e';
+var NRFUART_NOTIFY_CHAR  = process.env.NRFUART_NOTIFY_CHAR || '6e400003b5a3f393e0a9e50e24dcca9e';
+var NRFUART_WRITE_CHAR   = process.env.NRFUART_WRITE_CHAR || '6e400002b5a3f393e0a9e50e24dcca9e';
 
 var nrfuart = function(peripheral) {
     // call nobles super constructor
