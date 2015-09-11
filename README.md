@@ -121,7 +121,7 @@ nrfuart.discoverAll(function(ble_uart) {
 ## Example 1: node.js and BLE UART
 
 This program writes data to the BLE device and displays everything that comes
-back. Run an echo loopkback test on the Arduino to verify data flows in both
+back. Run an echo loopback test on the Arduino to verify data flows in both
 directions.
 
 
